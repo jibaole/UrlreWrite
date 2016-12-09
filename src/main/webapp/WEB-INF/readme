@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN" "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+<urlrewrite> 
+	<rule>
+		<note>
+			非首页
+		</note>
+		<from>^/(?!index)(?!case)(?!newList)(?!successList)([a-z]+).html$</from>
+		<to type="forward">%{context-path}/info/index.html?tab=$1</to>
+	</rule>
+	<rule>
+		<note>医院详情</note>
+		<from>^/hosp/([0-9]+).html$</from>
+		<to type="forward">%{context-path}/hosp/view.html?id=$1</to>
+	</rule>  
+	<rule>
+		<note>医院/分页</note>
+		<from>^/hosp/([0-9]+)-([0-9]+)-([0-9]+).html$</from>
+		<to type="forward">%{context-path}/hosp/index.html?p=$1&amp;bp=$2&amp;ep=$3</to>
+	</rule> 
+	<rule>
+		<note>医院/病种</note>
+		<from>^/hosp/b_([a-z]+).html$</from>
+		<to type="forward">%{context-path}/hosp/index.html?ch=$1</to>
+	</rule>
+	<rule>
+		<note>医院/病种/分页</note>
+		<from>^/hosp/b_([a-z]+)/([0-9]+)-([0-9]+)-([0-9]+).html$</from>
+		<to type="forward">%{context-path}/hosp/index.html?ch=$1&amp;p=$2&amp;bp=$3&amp;ep=$4</to>
+	</rule>
+	<rule>
+		<note>医院/国家</note>
+		<from>^/hosp/g_([a-z]+).html$</from>
+		<to type="forward">%{context-path}/hosp/index.html?cty=$1</to>
+	</rule>
+	<rule>
+		<note>医院/国家/分页</note>
+		<from>^/hosp/g_([a-z]+)/([0-9]+)-([0-9]+)-([0-9]+).html$</from>
+		<to type="forward">%{context-path}/hosp/index.html?cty=$1&amp;p=$2&amp;bp=$3&amp;ep=$4</to>
+	</rule>
+	<rule>
+		<note>医院/国家/病种</note>
+		<from>^/hosp/g_([a-z]+)/b_([a-z]+).html$</from>
+		<to type="forward">%{context-path}/hosp/index.html?cty=$1&amp;ch=$2</to>
+	</rule>
+	<rule>
+		<note>医院/国家/病种/分页</note>
+		<from>^/hosp/g_([a-z]+)/b_([a-z]+)/([0-9]+)-([0-9]+)-([0-9]+).html$</from>
+		<to type="forward">%{context-path}/hosp/index.html?cty=$1&amp;ch=$2&amp;p=$3&amp;bp=$4&amp;ep=$5</to>
+	</rule>
+	<rule>
+		<note>新闻</note>
+		<from>^/info/([0-9]+).html$</from>
+		<to type="forward">%{context-path}/info/view.html?id=$1</to>
+	</rule>
+	<rule>
+		<note>
+			新闻
+		</note>
+		<from>^/([a-z]+)/([0-9]+).html$</from>
+		<to type="forward">%{context-path}/info/view.html?tab=$1&amp;id=$2</to>
+	</rule>
+	<rule>
+		<note>
+			病种_新闻
+		</note>
+		<from>^/([a-z]+)/b_/([0-9]+).html$</from>
+		<to type="forward">%{context-path}/info/view.html?tab=$1&amp;id=$2</to>
+	</rule>
+	<rule>
+		<note>
+			病种_新闻
+		</note>
+		<from>^/([a-z]+)/b_([a-z]+)/([0-9]+).html$</from>
+		<to type="forward">%{context-path}/info/view.html?tab=$1&amp;ch=$2&amp;id=$3</to>
+	</rule>
+	<rule>
+		<note>
+			国家_新闻
+		</note>
+		<from>^/([a-z]+)/g_/([0-9]+).html$</from>
+		<to type="forward">%{context-path}/info/view.html?tab=$1&amp;cty=$2&amp;id=$3</to>
+	</rule>
+	<rule>
+		<note>
+			国家_新闻
+		</note>
+		<from>^/([a-z]+)/g_([a-z]+)/([0-9]+).html$</from>
+		<to type="forward">%{context-path}/info/view.html?tab=$1&amp;cty=$2&amp;id=$3</to>
+	</rule>
+	<rule>
+		<note>
+			资讯分类+分页
+		</note>
+		<from>^/([a-z]+)/([0-9]+)-([0-9]+)-([0-9]+).html$</from>
+		<to type="forward">%{context-path}/info/index.html?tab=$1&amp;p=$2&amp;bp=$3&amp;ep=$4</to>
+	</rule>
+	
+	<rule>
+		<note>
+			前沿医讯、海外医疗实例
+		</note>
+		<from>^/([a-z]+)/b_([a-z]+).html$</from>
+		<to type="forward">%{context-path}/info/index.html?ch=$2&amp;tab=$1</to>
+	</rule>
+	<rule>
+		<note>
+			前沿医讯、海外医疗实例+分页
+		</note>
+		<from>^/([a-z]+)/b_([a-z]+)/([0-9]+)-([0-9]+)-([0-9]+).html$</from>
+		<to type="forward">%{context-path}/info/index.html?ch=$2&amp;tab=$1&amp;p=$3&amp;bp=$4&amp;ep=$5</to>
+	</rule>
+	<rule>
+		<note>
+			前沿医讯、海外医疗实例+搜索
+		</note>
+		<from>^/([a-z]+)/b_([a-z]+).html?kw=(.*)$</from>
+		<to type="forward">%{context-path}/info/index.html?kw=$3&amp;ch=$1&amp;tab=$2</to>
+	</rule>
+	<rule>
+		<note>
+			前沿医讯、海外医疗实例+搜索+分页
+		</note>
+		<from>^/([a-z]+)/b_([a-z]+)/([0-9]+)-([0-9]+)-([0-9]+).html?kw=(.*)$</from>
+		<to type="forward">%{context-path}/info/index.html?kw=$6&amp;ch=$1&amp;tab=$2&amp;p=$3&amp;bp=$4&amp;ep=$5</to>
+	</rule>
+	<rule>
+		<note>
+			海外资讯、各国看病指南、各国医院排名
+		</note>
+		<from>^/([a-z]+)/g_([a-z]+).html$</from>
+		<to type="forward">%{context-path}/info/index.html?cty=$2&amp;tab=$1</to>
+	</rule>
+	<rule>
+		<note>
+			海外资讯、各国看病指南、各国医院排名+分页
+		</note>
+		<from>^/([a-z]+)/g_([a-z]+)/([0-9]+)-([0-9]+)-([0-9]+).html$</from>
+		<to type="forward">%{context-path}/info/index.html?cty=$2&amp;tab=$1&amp;p=$3&amp;bp=$4&amp;ep=$5</to>
+	</rule>
+	<rule>
+		<note>
+			海外资讯、各国看病指南、各国医院排名+搜索
+		</note>
+		<from>^/([a-z]+)/g_([a-z]+).html?kw=(.*)$</from>
+		<to type="forward">%{context-path}/info/index.html?kw=$3&amp;cty=$2&amp;tab=$1</to>
+	</rule>
+	<rule>
+		<note>
+			海外资讯、各国看病指南、各国医院排名+搜索+分页
+		</note>
+		<from>^/([a-z]+)/g_([a-z]+)/([0-9]+)-([0-9]+)-([0-9]+).html?kw=(.*)$</from>
+		<to type="forward">%{context-path}/info/index.html?kw=$6&amp;cty=$2&amp;tab=$1&amp;p=$3&amp;bp=$4&amp;ep=$5</to>
+	</rule>
+	<rule>
+		<note>
+			资讯分类+搜索
+		</note>
+		<from>^/([a-z]+).html?kw=(.*)$</from>
+		<to type="forward">%{context-path}/info/index.html?kw=$2&amp;tab=$1</to>
+	</rule>
+	<rule>
+		<note>
+			资讯分类+搜索+分页
+		</note>
+		<from>^/([a-z]+)/([0-9]+)-([0-9]+)-([0-9]+).html?kw=(.*)$</from>
+		<to type="forward">%{context-path}/info/index.html?kw=$2&amp;tab=$1&amp;p=$3&amp;bp=$4&amp;ep=$5</to>
+	</rule>
+	<!-- 移动端 新闻链接重写 -->
+	<!-- <rule>
+		<note>新闻</note>
+		<from>^/m/info/([0-9]+).html$</from>
+		<to type="forward">%{context-path}/m/info/view.html?id=$1</to>
+	</rule>
+	<rule>
+		<note>
+			新闻
+		</note>
+		<from>^/m/([a-z]+)/([0-9]+).html$</from>
+		<to type="forward">%{context-path}/m/info/view.html?tab=$1&amp;id=$2</to>
+	</rule>
+	<rule>
+		<note>
+			病种_新闻
+		</note>
+		<from>^/m/([a-z]+)/b_/([0-9]+).html$</from>
+		<to type="forward">%{context-path}/m/info/view.html?tab=$1&amp;id=$2</to>
+	</rule>
+	<rule>
+		<note>
+			病种_新闻
+		</note>
+		<from>^/m/([a-z]+)/b_([a-z]+)/([0-9]+).html$</from>
+		<to type="forward">%{context-path}/m/info/view.html?tab=$1&amp;ch=$2&amp;id=$3</to>
+	</rule>
+	<rule>
+		<note>
+			国家_新闻
+		</note>
+		<from>^/m/([a-z]+)/g_/([0-9]+).html$</from>
+		<to type="forward">%{context-path}/m/info/view.html?tab=$1&amp;cty=$2&amp;id=$3</to>
+	</rule>
+	<rule>
+		<note>
+			国家_新闻
+		</note>
+		<from>^/m/([a-z]+)/g_([a-z]+)/([0-9]+).html$</from>
+		<to type="forward">%{context-path}/m/info/view.html?tab=$1&amp;cty=$2&amp;id=$3</to>
+	</rule> -->
+</urlrewrite>

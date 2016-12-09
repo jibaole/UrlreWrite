@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="UrlreWrite"
+  id="myeclipse.1474194057055"
+  context-root="/urlrewrite-maven-example"
+  j2ee-spec="1.4"
+  archive="UrlreWrite.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+
